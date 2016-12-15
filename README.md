@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/MicheleBertoli/react-fix-it.svg?branch=master)](https://travis-ci.org/MicheleBertoli/react-fix-it)
+
 # React Fix It
 Automagically generate tests from errors.
 
