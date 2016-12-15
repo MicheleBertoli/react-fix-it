@@ -1,16 +1,22 @@
 {
   "name": "react-fix-it",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Automagically generate tests from errors",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "repository": "https://github.com/MicheleBertoli/react-fix-it.git",
   "author": "Michele Bertoli",
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "lint": "eslint ./"
+    "lint": "eslint ./",
+    "build": "babel ./src --out-dir ./dist",
+    "prepublish": "npm run build"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-jest": "^17.0.2",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
