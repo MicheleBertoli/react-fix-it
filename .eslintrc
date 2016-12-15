@@ -1,0 +1,14 @@
+{
+  "extends": "airbnb",
+
+  "env": {
+    "jest": true
+  },
+
+  "rules": {
+    "semi": [2, "never"],
+    "no-console": 0,
+    "react/jsx-filename-extension": [2, { "extensions": [".js"] }],
+    "import/no-extraneous-dependencies": [2, { "devDependencies": ["**/*.spec.js"] }]
+  }
+}
