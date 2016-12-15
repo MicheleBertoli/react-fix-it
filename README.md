@@ -3,11 +3,17 @@
 # React Fix It
 Automagically generate tests from errors.
 
-How to use it:
+Follow the flow:
 
 - Enhance your components with `fixIt`
-- Write some bugs
-- Check the console
+- Write some bugs (or wait for your components to fail)
+- Open the console and copy the test snippet
+- Paste the code to reproduce the error
+- Fix the bugs and celebrate
+
+## Demo
+
+![Demo](demo.gif)
 
 ## Installation
 
@@ -18,15 +24,16 @@ yarn add --dev react-fix-it
 ## Usage
 
 ```jsx
+import React, { Component } from 'react'
 import fixIt from 'react-fix-it'
 
-class BoringComponent extends Component {
+class MyComponent extends Component {
   render() {
     return <div>Hello ⚛</div>
   }
 }
 
-const SuperComponent = fixIt(BoringComponent)
+export default fixIt(MyComponent)
 ```
 
 ## Test
