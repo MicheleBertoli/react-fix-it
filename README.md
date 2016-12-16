@@ -11,6 +11,8 @@ Follow the flow:
 - Paste the code to reproduce the error
 - Fix the bugs and celebrate
 
+:warning: This package uses [react-component-errors](https://github.com/staxmanade/react-component-errors) to wrap the lifecycle methods into a try...catch block, which affects the performance of your components. Therefore it should **not** be used in production.
+
 ## Demo
 
 ![Demo](demo.gif)
