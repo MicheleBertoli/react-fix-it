@@ -30,7 +30,13 @@ They easiest way to patch automatically all the components in development mode i
 
 ## Installation
 
+> You can either install it with [npm](https://nodejs.org/en/) or [yarn](https://yarnpkg.com/)
+
+```sh
+npm install --save-dev react-fix-it
 ```
+or
+```sh
 yarn add --dev react-fix-it
 ```
 
@@ -50,7 +56,11 @@ export default fixIt(MyComponent)
 ```
 
 ## Test
-
+```sh
+npm test
 ```
+or
+
+```sh
 yarn test
 ```
