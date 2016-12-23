@@ -9,7 +9,7 @@ test('${errorReport.component} should not throw "${message}" on ${errorReport.me
   const props = ${JSON.stringify(errorReport.props)}
   const wrapper = shallow(<${errorReport.component} {...props} />)
   const instance = wrapper.instance()
-  const args = ${errorReport.arguments ? JSON.stringify([...errorReport.arguments]) : []}
+  const args = ${JSON.stringify(errorReport.arguments ? [...errorReport.arguments] : [])}
 
   expect(() => instance.${errorReport.method}(...args)).not.toThrowError('${message}')
 })`

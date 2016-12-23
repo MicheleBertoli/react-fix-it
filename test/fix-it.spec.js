@@ -2,10 +2,17 @@ import React, { Component } from 'react'
 import { shallow } from 'enzyme'
 import fixIt, { options } from '../src'
 
-test('it works', () => {
-  options.log = jest.fn()
-  const error = new Error('💩')
+const error = new Error('💩')
 
+beforeAll(() => {
+  options.log = jest.fn()
+})
+
+beforeEach(() => {
+  options.log.mockReset()
+})
+
+test('with arguments', () => {
   class Dummy extends Component {
     componentWillReceiveProps(nextProps) {
       if (nextProps.shouldThrow) {
@@ -30,5 +37,30 @@ test('Dummy should not throw "💩" on componentWillReceiveProps', () => {
   const args = [{"shouldThrow":true},{}]
 
   expect(() => instance.componentWillReceiveProps(...args)).not.toThrowError('💩')
+})`)
+})
+
+test('without arguments', () => {
+  class Dummy extends Component {
+    componentWillMount() {
+      throw error
+    }
+
+    render() {
+      return null
+    }
+  }
+
+  const SuperDummy = fixIt(Dummy)
+
+  expect(() => shallow(<SuperDummy />)).toThrowError(error)
+  expect(options.log).toBeCalledWith(`
+test('Dummy should not throw "💩" on componentWillMount', () => {
+  const props = {}
+  const wrapper = shallow(<Dummy {...props} />)
+  const instance = wrapper.instance()
+  const args = []
+
+  expect(() => instance.componentWillMount(...args)).not.toThrowError('💩')
 })`)
 })
