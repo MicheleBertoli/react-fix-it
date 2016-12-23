@@ -44,7 +44,13 @@ yarn add --dev react-fix-it
 
 ```jsx
 import React, { Component } from 'react'
-import fixIt from 'react-fix-it'
+import fixIt, { options } from 'react-fix-it'
+
+// defaults to console.log
+options.log = (test) => {
+  console.warn(test)
+  doWatheverYouWant(test)
+}
 
 class MyComponent extends Component {
   render() {

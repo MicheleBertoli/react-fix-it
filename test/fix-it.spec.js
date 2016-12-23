@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { shallow } from 'enzyme'
-import fixIt from '../src'
+import fixIt, { options } from '../src'
 
 test('it works', () => {
-  console.log = jest.fn()
+  options.log = jest.fn()
   const error = new Error('💩')
 
   class Dummy extends Component {
@@ -22,13 +22,13 @@ test('it works', () => {
   const wrapper = shallow(<SuperDummy />)
 
   expect(() => wrapper.setProps({ shouldThrow: true })).toThrowError(error)
-  expect(console.log).toBeCalledWith(`
+  expect(options.log).toBeCalledWith(`
 test('Dummy should not throw "💩" on componentWillReceiveProps', () => {
   const props = {}
   const wrapper = shallow(<Dummy {...props} />)
   const instance = wrapper.instance()
   const args = [{"shouldThrow":true},{}]
 
-  expect(() => instance['componentWillReceiveProps'](...args)).not.toThrowError('💩')
+  expect(() => instance.componentWillReceiveProps(...args)).not.toThrowError('💩')
 })`)
 })

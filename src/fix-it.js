@@ -1,4 +1,5 @@
 import wrap, { config } from 'react-component-errors'
+import options from './options'
 
 config.errorHandler = (errorReport) => {
   const message = errorReport.error.message.replace(/'/g, '\\\'')
@@ -10,16 +11,18 @@ test('${errorReport.component} should not throw "${message}" on ${errorReport.me
   const instance = wrapper.instance()
   const args = ${errorReport.arguments ? JSON.stringify([...errorReport.arguments]) : []}
 
-  expect(() => instance['${errorReport.method}'](...args)).not.toThrowError('${message}')
+  expect(() => instance.${errorReport.method}(...args)).not.toThrowError('${message}')
 })`
 
-  console.log(test)
+  options.log(test)
 
   throw errorReport.error
 }
 
-export default (Component) => {
+const fixIt = (Component) => {
   wrap(Component)
 
   return Component
 }
+
+export default fixIt
