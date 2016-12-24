@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/MicheleBertoli/react-fix-it.svg?branch=master)](https://travis-ci.org/MicheleBertoli/react-fix-it)
-
-# React Fix It
+# React Fix It [![Build Status](https://travis-ci.org/MicheleBertoli/react-fix-it.svg?branch=master)](https://travis-ci.org/MicheleBertoli/react-fix-it)
 Automagically generate tests from errors.
 
-Follow the flow:
+:warning: This package uses [react-component-errors](https://github.com/staxmanade/react-component-errors) to wrap the lifecycle methods into a try...catch block, which affects the performance of your components. Therefore it should **not** be used in production.
+
+## How to use it
 
 - Enhance your components with `fixIt`
 - Write some bugs (or wait for your components to fail)
@@ -11,26 +11,15 @@ Follow the flow:
 - Paste the code to reproduce the error
 - Fix the bugs and celebrate
 
-:warning: This package uses [react-component-errors](https://github.com/staxmanade/react-component-errors) to wrap the lifecycle methods into a try...catch block, which affects the performance of your components. Therefore it should **not** be used in production.
-
-They easiest way to patch automatically all the components in development mode is by using [babel-plugin-react-fix-it](https://github.com/MicheleBertoli/babel-plugin-react-fix-it) with the following configuration:
-```json
-{
-  "env": {
-    "development": {
-      "plugins": ["react-fix-it"]
-    }
-  }
-}
-```
-
 ## Demo
+
+[https://michelebertoli.github.io/react-fix-it/](https://michelebertoli.github.io/react-fix-it/)
 
 ![Demo](demo.gif)
 
 ## Installation
 
-> You can either install it with [npm](https://nodejs.org/en/) or [yarn](https://yarnpkg.com/)
+> You can either install it with [npm](https://nodejs.org) or [yarn](https://yarnpkg.com).
 
 ```sh
 npm install --save-dev react-fix-it
@@ -40,7 +29,7 @@ or
 yarn add --dev react-fix-it
 ```
 
-## Usage
+## Example
 
 ```jsx
 import React, { Component } from 'react'
@@ -61,12 +50,22 @@ class MyComponent extends Component {
 export default fixIt(MyComponent)
 ```
 
+:bulb: They easiest way to patch automatically all the components in development mode is by using [babel-plugin-react-fix-it](https://github.com/MicheleBertoli/babel-plugin-react-fix-it) with the following configuration:
+```json
+{
+  "env": {
+    "development": {
+      "plugins": ["react-fix-it"]
+    }
+  }
+}
+```
+
 ## Test
 ```sh
 npm test
 ```
 or
-
 ```sh
 yarn test
 ```
