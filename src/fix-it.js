@@ -4,8 +4,7 @@ import options from './options'
 config.errorHandler = (errorReport) => {
   const message = errorReport.error.message.replace(/'/g, '\\\'')
 
-  const test = `
-test('${errorReport.component} should not throw "${message}" on ${errorReport.method}', () => {
+  const test = `test('${errorReport.component} should not throw "${message}" on ${errorReport.method}', () => {
   const props = ${JSON.stringify(errorReport.props)}
   const wrapper = shallow(<${errorReport.component} {...props} />)
   const instance = wrapper.instance()

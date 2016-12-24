@@ -29,8 +29,7 @@ test('with arguments', () => {
   const wrapper = shallow(<SuperDummy />)
 
   expect(() => wrapper.setProps({ shouldThrow: true })).toThrowError(error)
-  expect(options.log).toBeCalledWith(`
-test('Dummy should not throw "💩" on componentWillReceiveProps', () => {
+  expect(options.log).toBeCalledWith(`test('Dummy should not throw "💩" on componentWillReceiveProps', () => {
   const props = {}
   const wrapper = shallow(<Dummy {...props} />)
   const instance = wrapper.instance()
@@ -54,8 +53,7 @@ test('without arguments', () => {
   const SuperDummy = fixIt(Dummy)
 
   expect(() => shallow(<SuperDummy />)).toThrowError(error)
-  expect(options.log).toBeCalledWith(`
-test('Dummy should not throw "💩" on componentWillMount', () => {
+  expect(options.log).toBeCalledWith(`test('Dummy should not throw "💩" on componentWillMount', () => {
   const props = {}
   const wrapper = shallow(<Dummy {...props} />)
   const instance = wrapper.instance()
