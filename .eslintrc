@@ -2,7 +2,8 @@
   "extends": "airbnb",
 
   "env": {
-    "jest": true
+    "jest": true,
+    "browser": true
   },
 
   "rules": {
@@ -10,6 +11,6 @@
     "no-console": 0,
     "react/jsx-filename-extension": [2, { "extensions": [".js"] }],
     "react/no-multi-comp": 0,
-    "import/no-extraneous-dependencies": [2, { "devDependencies": ["**/*.spec.js"] }]
+    "import/no-extraneous-dependencies": [2, { "devDependencies": ["demo/*", "test/*", "*.config.js"] }]
   }
 }
