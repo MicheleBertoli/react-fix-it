@@ -21633,7 +21633,7 @@
 	_reactComponentErrors.config.errorHandler = function (errorReport) {
 	  var message = errorReport.error.message.replace(/'/g, '\\\'');
 
-	  var test = '\ntest(\'' + errorReport.component + ' should not throw "' + message + '" on ' + errorReport.method + '\', () => {\n  const props = ' + JSON.stringify(errorReport.props) + '\n  const wrapper = shallow(<' + errorReport.component + ' {...props} />)\n  const instance = wrapper.instance()\n  const args = ' + JSON.stringify(errorReport.arguments ? [].concat(_toConsumableArray(errorReport.arguments)) : []) + '\n\n  expect(() => instance.' + errorReport.method + '(...args)).not.toThrowError(\'' + message + '\')\n})';
+	  var test = 'test(\'' + errorReport.component + ' should not throw "' + message + '" on ' + errorReport.method + '\', () => {\n  const props = ' + JSON.stringify(errorReport.props) + '\n  const wrapper = shallow(<' + errorReport.component + ' {...props} />)\n  const instance = wrapper.instance()\n  const args = ' + JSON.stringify(errorReport.arguments ? [].concat(_toConsumableArray(errorReport.arguments)) : []) + '\n\n  expect(() => instance.' + errorReport.method + '(...args)).not.toThrowError(\'' + message + '\')\n})';
 
 	  _options2.default.log(test);
 
