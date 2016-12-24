@@ -15,7 +15,7 @@ Automagically generate tests from errors.
 
 [https://michelebertoli.github.io/react-fix-it/](https://michelebertoli.github.io/react-fix-it/)
 
-![Demo](demo.gif)
+![Preview](demo/preview.gif)
 
 ## Installation
 
