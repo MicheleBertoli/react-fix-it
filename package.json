@@ -1,6 +1,6 @@
 {
   "name": "react-fix-it",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Automagically generate tests from errors",
   "main": "dist/index.js",
   "files": [
